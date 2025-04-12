@@ -234,7 +234,7 @@ export const Header: React.FC<HeaderProps> = ({
                     minWidth: { xs: '90px', sm: '100px' }
                   }}
                 >
-                  Logout
+                  O
                 </Button>
               ) : (
                 <Button
@@ -247,7 +247,7 @@ export const Header: React.FC<HeaderProps> = ({
                     minWidth: { xs: '90px', sm: '100px' }
                   }}
                 >
-                  Admin
+                  O
                 </Button>
               )}
             </Box>
