@@ -5,6 +5,9 @@ import multer from 'multer';
 import path from 'path';
 import dotenv from 'dotenv';
 import jwt from 'jsonwebtoken';
+import AWS from 'aws-sdk';
+import { v4 as uuidv4 } from 'uuid';
+import fs from 'fs';
 
 // Extend Express Request type to include user
 declare global {
@@ -51,6 +54,20 @@ const pdfSchema = new mongoose.Schema({
 });
 
 const PDF = mongoose.model('PDF', pdfSchema);
+
+// Create uploads directory if it doesn't exist
+if (!fs.existsSync('uploads')) {
+  fs.mkdirSync('uploads');
+}
+
+// AWS S3 Configuration (only in production)
+const s3 = process.env.NODE_ENV === 'production' ? new AWS.S3({
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+  region: process.env.AWS_REGION || 'us-east-1'
+}) : null;
+
+const BUCKET_NAME = process.env.AWS_BUCKET_NAME || 'notebookhub-pdfs';
 
 // Multer configuration for file uploads
 const storage = multer.diskStorage({
