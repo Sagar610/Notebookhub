@@ -57,7 +57,9 @@ const PDF = mongoose.model('PDF', pdfSchema);
 
 // Create uploads directory if it doesn't exist
 if (!fs.existsSync('uploads')) {
-  fs.mkdirSync('uploads');
+  fs.mkdirSync('uploads', { recursive: true });
+  // Set permissions to allow read/write
+  fs.chmodSync('uploads', 0o777);
 }
 
 // AWS S3 Configuration (only in production)
