@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:3001';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
 
 // Configure axios defaults
 axios.defaults.baseURL = API_BASE_URL;
@@ -10,7 +10,7 @@ export const API_ENDPOINTS = {
   PDF: (id: string) => `/api/pdfs/${id}`,
   UPLOAD: '/api/pdfs/upload',
   LOGIN: '/api/login',
-  REGISTER: `${API_BASE_URL}/api/auth/register`,
+  REGISTER: '/api/auth/register',
 };
 
 export const getFullUrl = (url: string): string => {
