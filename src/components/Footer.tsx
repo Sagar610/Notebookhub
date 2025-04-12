@@ -29,7 +29,7 @@ const Footer: React.FC = () => {
           </Typography>
           <Box sx={{ display: 'flex', gap: 2 }}>
             <Link
-              href="https://github.com/sagargondaliya"
+              href="https://github.com/sagar610"
               target="_blank"
               rel="noopener noreferrer"
               sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' } }}
@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
               <GitHubIcon />
             </Link>
             <Link
-              href="https://linkedin.com/in/sagargondaliya"
+              href="https://www.linkedin.com/in/sagar-gondaliya/"
               target="_blank"
               rel="noopener noreferrer"
               sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' } }}
