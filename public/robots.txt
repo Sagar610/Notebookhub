@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Sitemap: https://handwrittennoteshub.com/sitemap.xml
+
+# Disallow admin routes from being indexed
+Disallow: /admin
+Disallow: /api/ 
